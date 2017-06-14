@@ -39,7 +39,7 @@ $total = mysql_num_rows($dados);
 </header>
  <section class="container">
  <div class="desktopAdm">
- 	 <h3>Formulário de Cadastro de Clientes</h3><br>
+ 	 <h3>Formulário de Cadastro de Produtos</h3><br>
   <form name="Cadastro" action="php/insert.php" method="POST"><!--Ação do formulario chama insere.php -->
     <label>SRC da imagem<br/>Principal do produto: </label>
     <input type="text" name="imgSrc" size="45"><br>

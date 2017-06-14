@@ -10,31 +10,26 @@ $dados = mysql_query($query, $con) or die(mysql_error());
 $linha = mysql_fetch_assoc($dados);
 // calcula quantos dados retornaram
 $total = mysql_num_rows($dados);
-//variavel recebe o resultado do login
-$logado=0;
 
-	//se a consulta tiver resultados entrara no proximo bloco
 	if ($total > 0) {
-		do {//loop que percorre a tabela login conferindo o usuario e senha
+		do {
 			if ($linha['login'] == $_POST['usuario'] && $linha['senha'] == $_POST['password']){
-				$logado=1;
-				header ("Location: adm.php");//se o usuario logar redireciona para pagina de login
+
+				header ("Location: adm.html");
 			}
-
-		} while ( $linha = mysql_fetch_assoc($dados));
-
-			if ($logado == 0) {?> <!--se o login falhar vai esvrever uma mensagem -->
+			else{?>
 
 				<script type="text/javascript">
   				alert("Login ou senha incorreta")
   				</script>
  
   				<?php
-  			
+  			echo "<a href=index.html>VOLTAR</a>";
   				}
   
-		//retorna para pagina anterior caso login falhe
-		echo "<a href=login.php>VOLTAR</a>";
+			}
+
+		} while ( $linha = mysql_fetch_assoc($dados));
 	}
 ?>
 
